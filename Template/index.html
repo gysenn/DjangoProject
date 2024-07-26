@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item">
               <form class="d-flex ms-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-light" type="submit">Search</button>
               </form>
             </li>
@@ -64,87 +64,29 @@
       </div>
     </header>
     <div class="body-section">
-      <div class="body-heading">
-        Property List
-      </div>
-      <hr>
+      <div class="body-heading">Property List</div>
+      <hr />
       <div class="property-section">
+        {% for property in propertys %} 
         <div class="property-card">
           <div class="property-image">
             <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
           </div>
           <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
+            <h2 class="property-title">{{ property.title}}</h2>
             <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
+              <i class="bi bi-geo-alt-fill"></i>{{property.location}}
             </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
+            <p class="property-price">Nrs. {{property.price}}</p>
             <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i> 2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
+              <i class="fa-solid fa-ruler-combined"></i> {{property.property_area}}aana
+              <i class="fas fa-bed"></i> {{property.bedroom}} Bed
+              <i class="fas fa-car"></i> {{property.car_parking}}Car Parking
             </p>
           </div>
         </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i> 2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i>2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i> 2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
+        {% endfor %}
+       
       </div>
     </div>
     <footer class="footer">
@@ -163,7 +105,7 @@
             </li>
             <li class="footer-item">
               <a class="footer-link" href="{% url 'land' %}">LAND FOR SALE</a>
-            </li> 
+            </li>
           </ul>
         </div>
         <div class="follow-us-link">

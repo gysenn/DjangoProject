@@ -69,82 +69,27 @@
       </div>
       <hr>
       <div class="property-section">
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i>2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i> 2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i> 2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
-        <div class="property-card">
-          <div class="property-image">
-            <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
-            <span class="status-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <h2 class="property-title">HOUSE FOR SALE</h2>
-            <p class="property-location">
-              <i class="bi bi-geo-alt-fill"></i> Hattigaud, Budhanilkantha, Kathmandu
-            </p>
-            <p class="property-price">Nrs. 5,50,00,000</p>
-            <p class="property-details">
-              <i class="fa-solid fa-ruler-combined"></i>2 aana{% comment '' %} {% if property - type|lower == 'house' %}
-                <i class="fas fa-bed"></i> 4 Bed
-                <i class="fas fa-car"></i> 1 Car Parking
-              {% endif %} {% endcomment %}
-            </p>
-          </div>
-        </div>
+        {% for property in propertys %}
+          {% if property.property_type|lower == 'land' %}
+            <div class="property-card">
+              <div class="property-image">
+                <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
+              </div>
+              <div class="property-info">
+                <h2 class="property-title">{{ property.title }}</h2>
+                <p class="property-location">
+                  <i class="bi bi-geo-alt-fill"></i>{{ property.location }}
+                </p>
+                <p class="property-price">Nrs. {{ property.price }}</p>
+                <p class="property-details">
+                  <i class="fa-solid fa-ruler-combined"></i> {{ property.property_area }}aana
+                  <i class="fas fa-bed"></i> {{ property.bedroom }} Bed
+                  <i class="fas fa-car"></i> {{ property.car_parking }}Car Parking
+                </p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <footer class="footer">

@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    {% csrf_token %}
+    
     <header>
         <div class="head">
             <div class="logo">
@@ -58,6 +58,7 @@
                     </li>
                     <li class="nav-item">
                         <form class="d-flex ms-auto" role="search">
+                            {% csrf_token %}
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-light" type="submit">Search</button>
                         </form>
@@ -77,102 +78,211 @@
             Post Property
         </div>
         <hr>
-        <div class="property-form">
-            <div class="property-img">
-                <div class="image-containter">
-                    <img src="{% static 'Image/Logo/Logo2.png' %}" alt="">
-                </div>
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                </div>
-                <form method="POST" enctype="multipart/form-data">
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Upload</button>
-                </form>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="property-form">
+                <div class="property-img">
+                    <div class="image-containter">
+                        <img id="display-image" src="{% static 'Image/Background/default.webp' %}" alt="">
+                    </div>
 
-            </div>
-            <div class="form-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div class="img-upload-btn">
+                        <input type="file" id="image-upload" name="image-upload" hidden>
+                        <button type="button" id="image-upload-btn">Upload</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+
+                </div>
+                <div class="form-body">
+                    <div class="form-item">
+                        <label>Title:</label>
+                        <input type="text" name="title" placeholder="Enter Title">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div class="form-item">
+                        <label>Loaction:</label>
+                        <textarea name="location"></textarea>
                     </div>
-                    <button type="submit" class="hidden-btn" hidden></button>
-                </form>
-            </div>
-        </div>
-        <div class="submit-btn">
-            <button class="submit"> Post</button>
-        </div>
-    </div>
-    <footer class="footer">
-        <div class="footer-info">
-            <div class="navigate-link">
-                <h4>Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li class="footer-item">
-                        <a class="footer-link " href="{% url 'home' %}">HOME</a>
-                    </li>
-                    <li class="footer-item">
-                        <a class="footer-link" href="{% url 'aboutus' %}">ABOUT US</a>
-                    </li>
-                    <li class="footer-item">
-                        <a class="footer-link" href="{% url 'house' %}">HOUSE FOR SALE</a>
-                    </li>
-                    <li class="footer-item">
-                        <a class="footer-link" href="{% url 'land' %}">LAND FOR SALE</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="follow-us-link">
-                <h4>Follow Us</h4>
-                <div class="follow-us-item">
-                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-google"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-skype"></i></a>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label> Contact No.:</label>
+                            <input type="text" name="contact" placeholder="Enter contact number" minlength="10"
+                                maxlength="10">
+                        </div>
+                        <div class="form-item">
+                            <label>Alternative Contact No.:</label>
+                            <input type="text" name="alternative-contact" placeholder="Enter alternative contact no."
+                                minlength="10" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label>Facilities:</label>
+                        <textarea name="facilities"></textarea>
+                        <p>Please enter ',' after entering one facility</p>
+                    </div>
+                    <div class="form-item">
+                        <label>Property Details:</label>
+                        <textarea name="property_details"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label> Property Area:</label>
+                            <input type="number" name="property-area">
+                        </div>
+                        <div class="form-item">
+                            <label> Price:</label>
+                            <input type="number" name="price">
+                        </div>
+                        <div class="form-item">
+                            <label> Property Type:</label>
+                            <select name="property-type" id="property-type">
+                                <option value="">Select option</option>
+                                <option value="House">House</option>
+                                <option value="Land">Land</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="house-feature">
+                        <div class="form-group">
+                            <div class="form-item">
+                                <label> Furnishing:</label>
+                                <select name="furnishing">
+                                    <option value="">Select option</option>
+                                    <option value="Full Furnished">Full Furnished</option>
+                                    <option value="Semi Furnished">Semi Furnished</option>
+                                    <option value="No Furnished">No Furnished</option>
+                                </select>
+                            </div>
+                            <div class="form-item">
+                                <label> Bedroom:</label>
+                                <input type="number" name="bedroom">
+                            </div>
+                            <div class="form-item">
+                                <label> Kitchen:</label>
+                                <input type="number" name="Kitchen">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-item">
+                                <label> Living Room:</label>
+                                <input type="number" name="living_room">
+                            </div>
+
+                            <div class="form-item">
+                                <label>Bathroom:</label>
+                                <input type="number" name="bathroom">
+                            </div>
+                            <div class="form-item">
+                                <label> Car parking:</label>
+                                <input type="number" name="carparking">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-company-info">
-                <h4>Contact Info</h4>
-                <p class="info-head">
-                    <i class="bi bi-geo-alt-fill"></i><span class="info-body">Rapti-4, Bhandara, Chitwan</span>
-                </p>
-                <p class="info-head">
-                    <i class="bi bi-telephone-fill"></i><span class="info-body">984205730</span>
-                </p>
-                <p class="info-head">
-                    <i class="bi bi-envelope-at-fill"></i><span class="info-body">RE_GroupRealty@gmail.com</span>
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <p class="text">© 2024 RE-Group Realty. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src=" {% static 'carousel.js' %}"></script>
+            <div class="submit-btn">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        <footer class="footer">
+            <div class="footer-info">
+                <div class="navigate-link">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="footer-item">
+                            <a class="footer-link " href="{% url 'home' %}">HOME</a>
+                        </li>
+                        <li class="footer-item">
+                            <a class="footer-link" href="{% url 'aboutus' %}">ABOUT US</a>
+                        </li>
+                        <li class="footer-item">
+                            <a class="footer-link" href="{% url 'house' %}">HOUSE FOR SALE</a>
+                        </li>
+                        <li class="footer-item">
+                            <a class="footer-link" href="{% url 'land' %}">LAND FOR SALE</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="follow-us-link">
+                    <h4>Follow Us</h4>
+                    <div class="follow-us-item">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-google"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-skype"></i></a>
+                    </div>
+                </div>
+                <div class="footer-company-info">
+                    <h4>Contact Info</h4>
+                    <p class="info-head">
+                        <i class="bi bi-geo-alt-fill"></i><span class="info-body">Rapti-4, Bhandara, Chitwan</span>
+                    </p>
+                    <p class="info-head">
+                        <i class="bi bi-telephone-fill"></i><span class="info-body">984205730</span>
+                    </p>
+                    <p class="info-head">
+                        <i class="bi bi-envelope-at-fill"></i><span class="info-body">RE_GroupRealty@gmail.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <p class="text">© 2024 RE-Group Realty. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const image_upload_btn = document.getElementById('image-upload-btn');
+                const image_upload = document.getElementById('image-upload');
+                const displayImage = document.getElementById('display-image');
+                const house_feature = document.getElementById('house-feature');
+                const property_type = document.getElementById('property-type');
+        
+                image_upload_btn.addEventListener('click', function () {
+                    image_upload.click();
+                });
+        
+                image_upload.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            displayImage.src = e.target.result;
+                            displayImage.style.display = 'block';
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+        
+                // Function to update house_feature visibility
+                function updateHouseFeatureVisibility() {
+                    const selectedPropertyType = property_type.value.toLowerCase();
+                    if (selectedPropertyType === "land") {
+                        house_feature.style.display = "none";
+                    } else {
+                        house_feature.style.display = "block"; // Show the house feature if not "land"
+                    }
+                }
+        
+                // Initial check on page load
+                updateHouseFeatureVisibility();
+        
+                // Add event listener to handle changes
+                property_type.addEventListener('change', updateHouseFeatureVisibility);
+            });
+        </script>
+        
+        
 </body>
 
 </html>

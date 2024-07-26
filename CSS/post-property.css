@@ -25,6 +25,7 @@ body {
 .property-img{
     max-width: 30%;
     margin: 10px;
+    height: 60vh;
     padding: 10px;
     background-color: white;
     box-shadow: 4px 4px 8px rgba(56, 56, 56, 0.523);
@@ -44,17 +45,23 @@ body {
     height: 100%;
     object-fit: fill;
     margin-bottom: 10px;
+    
 }
-
-.list-group{
-    margin-bottom: 10px;
+.img-upload-btn{
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: end;
 }
-.list-group-item{
-    background-color: #f3efef;
+.img-upload-btn #image-upload-btn{
+    width: 75px;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
+    background-color: #0D6EFD;
+    color: white;
+    font-size: 20px;
 }
-
 .property-img form{
-
     height: 6vh;
     display: flex;
     justify-content : end;
@@ -66,14 +73,44 @@ body {
     background-color: white;
     box-shadow: 4px 4px 8px rgba(56, 56, 56, 0.523);
 }
+.form-group{
+    display: flex;
+    width: 100%;
+}
+.form-group .form-item{
+    margin-right: 10px;
+    width: 100%;
+}
+.form-item {
+    margin-bottom: 15px;
+}
+
+.form-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-item input,
+.form-item textarea,
+.form-item select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+#house-feature{
+    display: none;
+}
 .submit-btn{
-    margin-right: 50px;
+    margin:0px 50px 10px 0px;
     display: flex;
    justify-content:end; 
 }
 
-.submit-btn .submit{
-    width: 75px;
+.submit-btn .btn{
+    width: 85px;
     height: 6vh;
     border: none;
     border-radius: 5px;
