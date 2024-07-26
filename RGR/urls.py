@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from base.views import home,aboutus,house,land,post
+from django.conf import settings
+from django.conf.urls.static import static
+from base.views import home,aboutus,house,land,post,propertydisplay
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +27,6 @@ urlpatterns = [
     path('house/',house,name="house"),
     path('land/',land,name="land"),
     path('post/',post,name="post"),
-
+    path('propertydisplay/<int:pk>/',propertydisplay,name="propertydisplay"),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

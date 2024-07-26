@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{% static 'header.css' %}" />
     <link rel="stylesheet" href="{% static 'footer.css' %}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>House For Sales</title>
   </head>
@@ -65,12 +64,13 @@
     </header>
     <div class="body-section">
       <div class="body-heading">House For Sales</div>
-      <hr />
+      <hr>
 
       <div class="property-section">
         {% for property in propertys %}
           {% if property.property_type|lower == 'house' %}
             <div class="property-card">
+              
               <div class="property-image">
                 <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
               </div>
@@ -81,7 +81,7 @@
                 </p>
                 <p class="property-price">Nrs. {{ property.price }}</p>
                 <p class="property-details">
-                  <i class="fa-solid fa-ruler-combined"></i> {{ property.property_area }}aana
+                  <i class="fa-solid fa-pen-ruler"></i>{{ property.property_area }}aana
                   <i class="fas fa-bed"></i> {{ property.bedroom }} Bed
                   <i class="fas fa-car"></i> {{ property.car_parking }}Car Parking
                 </p>

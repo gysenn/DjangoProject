@@ -64,3 +64,12 @@ def post(request):
         return redirect("home")
 
     return render(request,"post-property.html")
+def propertydisplay(request,pk):
+    property_objs=property_detail.objects.get(id=pk)
+    propertydisplay_objs=property_detail.objects.all()
+    context={'propertys':property_objs,
+             'prop':propertydisplay_objs
+             }
+
+
+    return render(request,"propertydisplay.html",context)
