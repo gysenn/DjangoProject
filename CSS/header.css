@@ -1,0 +1,110 @@
+/* header start */
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    color: #0D6EFD;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.info-head {
+    margin: 0;
+    padding: 0;
+}
+
+.bi {
+    padding-right: 10px;
+}
+
+.logo {
+    width: 20%;
+    height: 12vh;
+}
+
+/* navbar start */
+.navbar {
+    width: 100%;
+    padding: 0;
+    background: #0D6EFD;
+}
+
+.nav {
+    width: 100%;
+    font-size: 15px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    background: #0D6EFD;
+    margin-left: 5px;
+}
+
+.link-item {
+    display: flex;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item .nav-link {
+    color: white;
+    transition: 0.3s ease;
+    margin-top: 1px;
+}
+
+.nav-item .active {
+    font-weight: 800;
+    height: 5.8vh;
+    border: none;
+    margin-top: 1px;
+}
+
+.link-btn .nav-item {
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-btn .nav-item .nav-link {
+    height: 4vh;
+    color: #0D6EFD;
+    background-color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: 0.3s ease;
+}
+
+.link-btn .nav-item .nav-link:hover {
+    color: white;
+    background-color: #FF5733;
+}
+
+.nav-item .d-flex {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.nav-item .d-flex .form-control, .nav-item .d-flex .btn {
+    height: 4vh;
+    display: flex;
+    align-items: center;
+}
+
+/* navbar end */
+/* header end */
