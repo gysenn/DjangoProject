@@ -1,14 +1,14 @@
 from django.db import models
 
 # Create your models here.
-class property_detail(models.Model):
+class Property_Detail(models.Model):
     title = models.CharField(max_length=255)
     location = models.TextField()
     contact = models.CharField(max_length=10)
     alternative_contact = models.CharField(max_length=10, blank=True, null=True)
     facilities = models.TextField()
     property_details = models.TextField()
-    property_area = models.DecimalField(max_digits=10, decimal_places=2)
+    property_area =models.IntegerField()
     price =models.IntegerField()
     property_type = models.CharField(max_length=50)
     image = models.ImageField(upload_to='image/', blank=True, null=True)

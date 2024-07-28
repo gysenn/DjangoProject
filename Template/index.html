@@ -74,28 +74,35 @@
     <div class="body-heading">Property List</div>
     <hr>
     <div class="property-section">
+      {% if propertys %}
       {% for property in propertys %}
       <a href="{% url 'propertydisplay' pk=property.id %}">
-      <div class="property-card">
-        <div class="property-image">
-          <img src="{% static 'Image/Logo/Logo2.png' %} " alt="Property Image" />
+        <div class="property-card">
+          <div class="property-image">
+            {% if property.image %}
+            <img src="{{ property.image.url }}" alt="Property Image" />
+            {% else %}
+            <img src="{% static 'Image/Background/default.webp' %}" alt="Default Property Image" />
+            {% endif %}
+          </div>
+          <div class="property-info">
+            <h2 class="property-title">{{ property.title}}</h2>
+            <p class="property-location">
+              <i class="bi bi-geo-alt-fill"></i>{{property.location}}
+            </p>
+            <p class="property-price">Nrs. {{property.price}}</p>
+            <p class="property-details">
+              <i class="fa-solid fa-pen-ruler"></i> {{property.property_area}}aana
+              <i class="fas fa-bed"></i> {{property.bedroom}} Bed
+              <i class="fas fa-car"></i> {{property.car_parking}}Car Parking
+            </p>
+          </div>
         </div>
-        <div class="property-info">
-          <h2 class="property-title">{{ property.title}}</h2>
-          <p class="property-location">
-            <i class="bi bi-geo-alt-fill"></i>{{property.location}}
-          </p>
-          <p class="property-price">Nrs. {{property.price}}</p>
-          <p class="property-details">
-            <i class="fa-solid fa-pen-ruler"></i> {{property.property_area}}aana
-            <i class="fas fa-bed"></i> {{property.bedroom}} Bed
-            <i class="fas fa-car"></i> {{property.car_parking}}Car Parking
-          </p>
-        </div>
-      </div>
-    </a>
+      </a>
       {% endfor %}
-
+      {% else %}
+      <h5>Sorry! List Empty</h5>
+     {% endif %}
     </div>
   </div>
   <footer class="footer">
@@ -154,7 +161,6 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src=" {% static 'carousel.js' %}"></script>
 </body>
 
 </html>

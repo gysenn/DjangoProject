@@ -29,4 +29,5 @@ urlpatterns = [
     path('post/',post,name="post"),
     path('propertydisplay/<int:pk>/',propertydisplay,name="propertydisplay"),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

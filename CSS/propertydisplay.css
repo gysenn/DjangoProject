@@ -16,6 +16,10 @@ body {
     font-size: 30px;
     font-weight: 600;
 }
+.breadcrumb{
+    background-color: white;
+    padding: 10px;
+}
 
 .breadcrumb .breadcrumb-item a,.breadcrumb .breadcrumb-item{
     text-decoration: none;
@@ -156,6 +160,7 @@ p{
 }
 .similar-section{
     display: flex;
+    flex-wrap: wrap;
 }
 .similar-section a{
     text-decoration: none;

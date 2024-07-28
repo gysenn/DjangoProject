@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
-from .models import property_detail
+from .models import Property_Detail
 # Create your views here.
 def home(request):
-    property_objs=property_detail.objects.all()
+    property_objs=Property_Detail.objects.all()
     context={'propertys':property_objs}
     return render(request,"index.html",context)
 
@@ -11,12 +11,12 @@ def aboutus(request):
 
 
 def house(request):
-    property_objs=property_detail.objects.all()
+    property_objs=Property_Detail.objects.all()
     context={'propertys':property_objs}
     return render(request,"house.html",context)
 
 def land(request):
-    property_objs=property_detail.objects.all()
+    property_objs=Property_Detail.objects.all()
     context={'propertys':property_objs}
     return render(request,"land.html",context)
 
@@ -56,17 +56,17 @@ def post(request):
             carparking = int(carparking)
         except ValueError:
             carparking = 0
-        image_upload=request.POST.get("image-upload")
+        image_upload = request.FILES.get("image-upload")
         price=request.POST.get("price")
         
 
-        property_detail.objects.create(title=title,location=location,contact=contact,alternative_contact=alternative_contact,facilities=facilities,property_details=property_details,property_area=property_area,price=price,property_type=property_type,image=image_upload,furnishing=furnishing,bedroom=bedroom,kitchen=Kitchen,living_room=living_room,bathroom=bathroom,car_parking=carparking)
+        Property_Detail.objects.create(title=title,location=location,contact=contact,alternative_contact=alternative_contact,facilities=facilities,property_details=property_details,property_area=property_area,price=price,property_type=property_type,image=image_upload,furnishing=furnishing,bedroom=bedroom,kitchen=Kitchen,living_room=living_room,bathroom=bathroom,car_parking=carparking)
         return redirect("home")
 
     return render(request,"post-property.html")
 def propertydisplay(request,pk):
-    property_objs=property_detail.objects.get(id=pk)
-    propertydisplay_objs=property_detail.objects.all()
+    property_objs=Property_Detail.objects.get(id=pk)
+    propertydisplay_objs=Property_Detail.objects.all()
     context={'propertys':property_objs,
              'prop':propertydisplay_objs
              }
