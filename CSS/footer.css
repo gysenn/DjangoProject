@@ -1,0 +1,77 @@
+
+/*footer*/
+.footer {
+    height: 40vh;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.footer-info {
+    background-color: #0D6EFD;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.navigate-link,
+.follow-us-link,
+.footer-company-info {
+    flex: 1;
+    margin: 10px;
+}
+
+.navigate-link h4,
+.follow-us-link h4,
+.footer-company-info h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+
+.navigate-link .footer-item,
+.follow-us-link .follow-us-item,
+.footer-company-info .info-head {
+    margin: 10px 0;
+}
+
+.navigate-link .footer-link,
+.follow-us-link .social-link,
+.footer-company-info .info-body {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.navigate-link .footer-link:hover,
+.follow-us-link .social-link:hover {
+    color: #FF5733;
+    transition: color 0.3s ease;
+}
+
+.follow-us-item {
+    display: flex;
+    gap: 15px;
+}
+
+.follow-us-item a {
+    font-size: 24px;
+}
+
+.container {
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    background-color:#f3efef;
+    text-align: center;
+}
+
+.footer-company-info .info-head {
+    display: flex;
+    align-items: center;
+}
+
+.footer-company-info .info-head i {
+    margin-right: 10px;
+}
+/*footer end*/

@@ -1,0 +1,237 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #f3efef;
+}
+
+/* Header Start */
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    color: #0D6EFD;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.info-head {
+    margin: 0;
+    padding: 0;
+}
+
+.bi {
+    padding-right: 10px;
+}
+
+.logo {
+    width: 20%;
+    height: 12vh;
+}
+
+/* Navbar Start */
+.navbar {
+    width: 100%;
+    padding: 0;
+    background: #0D6EFD;
+}
+
+.nav {
+    width: 100%;
+    font-size: 15px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    background: #0D6EFD;
+    margin-left: 5px;
+}
+
+.link-item {
+    display: flex;
+}
+
+.nav-item .nav-link {
+    color: white;
+    transition: 0.3s ease;
+    margin-top: 1px;
+}
+
+.nav-item .active {
+    font-weight: 800;
+    height: 5.8vh;
+    border: none;
+    margin-top: 1px;
+}
+
+.link-btn .nav-item {
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-btn .nav-item .nav-link {
+    height: 4vh;
+    color: #0D6EFD;
+    background-color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: 0.3s ease;
+}
+
+.link-btn .nav-item .nav-link:hover {
+    color: white;
+    background-color: #FF5733;
+}
+
+/* About Us Section */
+#about-us{
+    padding: 20px 200px 20px 200px;
+}
+
+.about-heading {
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0px 0px 20px 0px;
+}
+
+#about-us h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+#about-us p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+#about-us ul {
+    list-style: none;
+    padding: 0;
+}
+
+#about-us ul li {
+    background: #fff;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 5px solid #333;
+}
+
+#about-us address p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+#about-us address a {
+    color: #333;
+    text-decoration: none;
+}
+
+#about-us address a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Start */
+.footer {
+    height: 0vh;
+    background-color: white;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.footer-info {
+    background-color: #0D6EFD;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.navigate-link,
+.follow-us-link,
+.footer-company-info {
+    flex: 1;
+    margin: 10px;
+}
+
+.navigate-link h4,
+.follow-us-link h4,
+.footer-company-info h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+
+.navigate-link .footer-item,
+.follow-us-link .follow-us-item,
+.footer-company-info .info-head {
+    margin: 10px 0;
+}
+
+.navigate-link .footer-link,
+.follow-us-link .social-link,
+.footer-company-info .info-body {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.navigate-link .footer-link:hover,
+.follow-us-link .social-link:hover {
+    color: #FF5733;
+    transition: color 0.3s ease;
+}
+
+.follow-us-item {
+    display: flex;
+    gap: 15px;
+}
+
+.follow-us-item a {
+    font-size: 24px;
+}
+
+.container {
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.footer-company-info .info-head {
+    display: flex;
+    align-items: center;
+}
+
+.footer-company-info .info-head i {
+    margin-right: 10px;
+}

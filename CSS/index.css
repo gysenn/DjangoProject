@@ -1,0 +1,85 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #f3efef;
+}
+
+/* body section start */
+.body-section {
+    padding: 20px 200px 20px 200px;
+}
+
+.body-heading {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.property-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+}
+.property-section a{
+    text-decoration: none;
+    color: black;
+}
+.property-card {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0;
+    box-shadow: 4px 4px 8px rgba(56, 56, 56, 0.523);
+    border-bottom: 2px solid #0D6EFD;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.property-image {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.property-info {
+    padding: 15px;
+}
+
+.property-title {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.property-location,
+.property-price,
+.property-details {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.property-card .fa-solid,
+.property-card .fas,
+.property-card .bi {
+    color: #0D6EFD;
+}
+
+.property-card .fa-solid,
+.property-card .fas {
+    margin-left: 10px;
+}
+
+/* body-section end*/
